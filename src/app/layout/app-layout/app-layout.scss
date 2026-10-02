@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.app-body {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: 32px clamp(20px, 4vw, 56px);
+}
+
+@media (max-width: 720px) {
+  .app-body {
+    display: block;
+  }
+
+  .app-content {
+    padding: 24px 16px;
+  }
+}

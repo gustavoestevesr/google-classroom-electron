@@ -1,0 +1,23 @@
+<section class="page-heading">
+  <div>
+    <p class="eyebrow">Google Classroom</p>
+    <h1>Turmas</h1>
+    <p class="page-description">Organize suas aulas e acompanhe cada turma em um só lugar.</p>
+  </div>
+  <a class="button button-primary" routerLink="/turmas/nova">＋ Nova turma</a>
+</section>
+@if (loading()) {
+  <app-loading />
+} @else if (error()) {
+  <app-empty-state title="Não foi possível carregar" description="Verifique se o aplicativo desktop está aberto." />
+} @else if (!turmas().length) {
+  <app-empty-state title="Nenhuma turma cadastrada" description="Crie sua primeira turma para começar.">
+    <a class="button button-primary" routerLink="/turmas/nova">Criar turma</a>
+  </app-empty-state>
+} @else {
+  <section class="class-grid" aria-label="Suas turmas">
+    @for (turma of turmas(); track turma.id) {
+      <app-class-card [turma]="turma" />
+    }
+  </section>
+}

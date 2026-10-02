@@ -1,10 +1,10 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  listarTurmas: () => ipcRenderer.invoke('turmas:listar'),
-  criarTurma: (turma) => ipcRenderer.invoke('turmas:criar', turma),
-  buscarTurma: (id) => ipcRenderer.invoke('turmas:buscar', id),
-  deletarTurma: (id) => ipcRenderer.invoke('turmas:deletar', id),
-  atualizarTurma: (turma) => ipcRenderer.invoke('turmas:atualizar', turma),
-  arquivarTurma: (id) => ipcRenderer.invoke('turmas:arquivar', id),
+  listAllClasses: () => ipcRenderer.invoke('class:listAll'),
+  createClass: (turma) => ipcRenderer.invoke('class:create', turma),
+  findClass: (id) => ipcRenderer.invoke('class:find', id),
+  deleteClass: (id) => ipcRenderer.invoke('class:delete', id),
+  archiveClass: (id) => ipcRenderer.invoke('class:archive', id),
+  updateClass: (turma) => ipcRenderer.invoke('class:update', turma),
 });

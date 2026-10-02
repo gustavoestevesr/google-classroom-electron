@@ -1,0 +1,18 @@
+@if (turma(); as turmaAtual) {
+  <a class="back-link" routerLink="/turmas">← Todas as turmas</a>
+  <section class="class-hero">
+    <div>
+      <p class="eyebrow">Turma</p>
+      <h1>{{ turmaAtual.name }}</h1>
+    </div>
+    <app-class-menu (delete)="remove()" />
+  </section>
+  <nav class="tab-nav" aria-label="Seções da turma">
+    <a [routerLink]="['/turmas', turmaAtual.id, 'mural']">Mural</a>
+    <a [routerLink]="['/turmas', turmaAtual.id, 'atividades']">Atividades</a>
+    <a [routerLink]="['/turmas', turmaAtual.id, 'pessoas']">Pessoas</a>
+  </nav>
+  <app-empty-state title="Bem-vindo à turma" description="Use as seções acima para acessar o mural, as atividades e as pessoas." />
+} @else {
+  <app-empty-state title="Carregando turma..." />
+}

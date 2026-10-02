@@ -1,0 +1,26 @@
+<section class="welcome-panel">
+  <p class="eyebrow">Seu espaço de ensino</p>
+  <h1>Olá, boas-vindas ao Classroom</h1>
+  <p>Acesse suas turmas e mantenha as atividades organizadas.</p>
+  <a class="button button-primary" routerLink="/turmas">Ver minhas turmas</a>
+</section>
+<section class="dashboard-section">
+  <div class="section-heading">
+    <div>
+      <h2>Turmas recentes</h2>
+      <p class="page-description">Você tem {{ turmas().length }} turma(s).</p>
+    </div>
+    <a class="text-link" routerLink="/turmas">Ver todas</a>
+  </div>
+  @if (turmas().length) {
+    <div class="class-grid">
+      @for (turma of turmas().slice(0, 3); track turma.id) {
+        <app-class-card [turma]="turma" />
+      }
+    </div>
+  } @else {
+    <app-empty-state title="Comece criando uma turma" description="Suas turmas aparecerão nesta página.">
+      <a class="button button-primary" routerLink="/turmas/nova">＋ Nova turma</a>
+    </app-empty-state>
+  }
+</section>

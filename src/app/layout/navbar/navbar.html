@@ -1,0 +1,16 @@
+<header class="topbar">
+  <a class="brand" routerLink="/dashboard" aria-label="Google Classroom - início">
+    <span class="brand-mark">C</span>
+    <span>Classroom</span>
+  </a>
+  <div class="toast-stack" aria-live="polite">
+    @for (notification of notificationService.notifications(); track notification.id) {
+      <div class="toast" [class]="'toast toast-' + notification.type" role="status">
+        <span>{{ notification.message }}</span>
+        <button type="button" (click)="notificationService.dismiss(notification.id)" aria-label="Fechar">
+          x
+        </button>
+      </div>
+    }
+  </div>
+</header>

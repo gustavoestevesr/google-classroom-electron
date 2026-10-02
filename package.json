@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "electron": "tsx electron/main.ts",
+    "electron": "electron src/electron/main.ts",
     "electron:dev": "concurrently \"ng serve\" \"wait-on http://localhost:4200 && electron src/electron/main.ts\"",
     "build": "ng build",
     "package": "npm run build && electron-builder",
